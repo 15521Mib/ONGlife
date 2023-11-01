@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pr-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Pessoa</title>
+    <title>Login</title>
 
     <!-- Inclua o CSS do Bootstrap -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -12,17 +12,17 @@
 
 <!-- Barra de Navegação Bootstrap -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="#">Ong Vida</a>
+    <a class="navbar-brand" href="/">Ong Life</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
             <li class="nav-item">
-                <a class="nav-link" href="/">Página Principal</a>
+                <a class="nav-link" href="/">Home Page</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="/cadastrousuario.html">Cadastro de Pessoa</a>
+                <a class="nav-link" href="/cadastrousuario">Person Registration</a>
             </li>
         </ul>
     </div>
@@ -30,10 +30,10 @@
 
 <!-- Formulário de Cadastro de Pessoa com Bootstrap -->
 <div class="container mt-5">
-    <h1>Cadastro de Pessoa</h1>
+    <h1>Person Registration</h1>
     <form action="/cadastrousuario" method="post">
         <div class="form-group">
-            <label for="nome">Nome:</label>
+            <label for="nome">Name:</label>
             <input type="text" class="form-control" id="nome" name="nome" placeholder="Nome">
         </div>
         <div class="form-group">
@@ -41,20 +41,20 @@
             <input type="email" class="form-control" id="email" name="email" placeholder="Email">
         </div>
         <div class="form-group">
-            <label for="endereco">Endereço:</label>
+            <label for="endereco">Address:</label>
             <input type="text" class="form-control" id="endereco" name="endereco" placeholder="Endereço">
         </div>
         <div class="form-group">
-            <label for="numero">Número:</label>
+            <label for="numero">Number:</label>
             <input type="text" class="form-control" id="numero" name="numero" placeholder="Número">
         </div>
         <div class="form-group">
-            <label for="cep">CEP:</label>
+            <label for="cep">Postal code:</label>
             <input type="text" class="form-control" id="cep" name="cep" placeholder="CEP">
         </div>
         <div class="form-group">
-            <label for="nascimento">Data de Nascimento:</label>
-            <input type="date" class="form-control" id="nascimento" name="nascimento">
+            <label for="nascimento">Date of Birth:</label>
+            <input type="text" class="form-control" id="nascimento" name="nascimento">
         </div>
         <button type="submit" class="btn btn-primary">Cadastrar</button>
     </form>
