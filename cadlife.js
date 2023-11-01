@@ -9,55 +9,57 @@ app.use(bodyParser.json());
 const port = 3000;
 
 //configurando o banco de dados
-mongoose.connect("mongodb://127.0.0.1:27017/cadlife",
-{
-    useNewUrlParser: true,
-    useUnifiedTopology : true
+mongoose.connect("mongodb://127.0.0.1:27017/dblife", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
 });
 
 //criando a model do seu projeto
 const UsuarioSchema = new mongoose.Schema({
-
-    nome : {type : String},
-    email : {type : String, required : true},
-    endereco : {type : String},
-    numero : {type : Number},
-    cep : {type : String, required : true},
-    nascimento : {type : Date, required : true}
-
+  nome: { type: String },
+  email: { type: String, required: true },
+  endereco: { type: String },
+  numero: { type: Number },
+  cep: { type: String, required: true },
+  nascimento: { type: Date, required: true }
 });
 
 const Usuario = mongoose.model("Usuario", UsuarioSchema);
 
-//configuração dos roteamentos
+//configuração dos roteamendos
 //cadastrousuario
-app.post("/cadastrousuario", async(req, res)=>{
-    const nome = req.body.nome;
-    const email = req.body.email;
-    const endereco = req.body.endereco;
-    const numero = req.body.numero;
-    const cep = req.body.cep;
-    const nascimento = req.bodynascimento
+app.post("/cadastrousuario", async (req, res) => {
+  const nome = req.body.nome;
+  const email = req.body.email;
+  const endereco = req.body.endereco;
+  const numero = req.body.numero;
+  const cep = req.body.cep;
+  const nascimento = req.body.nascimento;
 
-    const usuario = new Usuario({
-        nome : nome,
-        email : email,
-        endereco : endereco,
-        numero : numero,
-        cep : cep,
-        nascimento : nascimento
-    });
+  const usuario = new Usuario({
+    nome: nome,
+    email: email,
+    endereco: endereco,
+    numero: numero,
+    cep: cep,
+    nascimento: nascimento
+  });
 
-    try {
-        const newUsuario = await await usuario.save();
-        res.json({ error: null, msg: "Cadastro ok", UsuarioId: newUsuario._id});
-    }   catch (error) {}
+  try {
+    const newUsuario = await usuario.save();
+    res.json({ error: null, msg: "Cadastro ok", UsuarioId: newUsuario._id });
+  } catch (error) {}
 });
 
-app.get("/", async()=>{
+//rota de get de formulario
+app.get("/cadastrousuario", async(req, res)=>{
+  res.sendFile(__dirname + "/cadastrousuario.html")
+});
+
+app.get("/", async(req, res)=>{
     res.sendFile(__dirname + "/index.html")
 });
 
 app.listen(port, ()=>{
-    console.log('Servidor rodada na porta ${port}')
+    console.log(`Servidor rodando na porta ${port}`)
 });
